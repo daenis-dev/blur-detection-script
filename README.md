@@ -1,9 +1,22 @@
+### Overview
+
+- Upon invocation, the application will identify all blurry images within the *datasets/test* directory; blurry images are then relocated to the *datasets/test/blurry* directory
+
+- Laplacian operator is used to highlight regions of an image containing abrupt intensity changes
+  - A high variance and a high maximum indicate an in-focus image; there are edges present, so colors change abruptly
+  - A low variance and a low maximum indicate a blurry image; there are no edges present, so colors blend into each other
+- The training scripts build a support vector machine model that determines a threshold between the Laplacian maximum and the Laplacian variance
+  - This threshold is a line in the form of *y = mx + b*
+  - New instances are plotted against the threshold; images above the line are in focus, and images below the line are blurry
+
+
+
 ### Configure Local Environment
 
 - Clone the project
 
   ```
-  >> git clone _____
+  >> git clone git@github.com:daenis-dev/blur-detector.git
   ```
 
 - Download the data
@@ -17,6 +30,7 @@
     	- sharp
     	- blurry
     	- test
+    		- blurry
     ```
 
     - Sharp holds sharp images, blurry holds blurry images, and test holds a mix of both
