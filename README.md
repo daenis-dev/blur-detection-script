@@ -2,7 +2,7 @@
 
 - Upon invocation, the application will identify all blurry images within the *datasets/test* directory; blurry images are then relocated to the *datasets/test/blurry* directory
 
-- Laplacian operator is used to highlight regions of an image containing abrupt intensity changes
+- Laplace operator is used to highlight regions of an image containing abrupt intensity changes
   - A high variance and a high maximum indicate an in-focus image; there are edges present, so colors change abruptly
   - A low variance and a low maximum indicate a blurry image; there are no edges present, so colors blend into each other
 - The training scripts build a support vector machine model that determines a threshold between the Laplacian maximum and the Laplacian variance
